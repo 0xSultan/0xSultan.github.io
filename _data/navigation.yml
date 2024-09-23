@@ -1,13 +1,13 @@
 # main links
 main:
-  - title: "Malware Analysis"
-    url: /categories/#malware-analysis
-  - title: "Binary Exploitation"
-    url: /categories/#binary-exploitation
-  - title: "CTF Writeups"
-    url: /categories/#ctf-writeups
-  - title: "Tutorials"
-    url: /categories/#tutorials
+  - title: "DFIR"
+    url: /categories/#dfir
+  - title: "Hardware"
+    url: /categories/#hardware
+  - title: "Writeups"
+    url: /categories/#writeups
+  #- title: "Tutorials"
+  #  url: /categories/#tutorials
   - title: "All Categories"
     url: /categories
   # - title: "Sample Posts"
