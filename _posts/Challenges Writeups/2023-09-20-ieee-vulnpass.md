@@ -32,7 +32,7 @@ First, the memory profile was obtained using the `imageinfo` Volatility plugin.
 
   Among the interesting processes identified was `KeePass.exe` which is the keepass password manager application.
 
-From the challenge Description and name too we understand we are looking for credentials to access a lgin page, so let's focus on the keepass application.
+From the challenge description and name too we understand we are looking for credentials to access a login page, so let's focus on the keepass application.
 
 A quick search for how to extract the keepass passwords via a memory dump, revealed that KeePass has a known CVE (CVE-2023-32784) and it is possible to recover the cleartext master password from a memory dump.  Running <a href="https://github.com/vdohney/keepass-password-dumper" target="_blank">the poc</a>
 , the master key password was retrieved:
