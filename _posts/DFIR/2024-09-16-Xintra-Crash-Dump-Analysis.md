@@ -236,7 +236,7 @@ cool we dumped the ASP.NET cache, now let's jump to the `AppDomain`.
 ## AppDomain ?
 > In ASP.NET, an AppDomain (Application Domain) is a logical container that isolates applications running within the same process, such as `w3wp.exe` process can host multiple ASP.NET applications simultaneously. Each ASP.NET application runs in its own AppDomain, ensuring separation of application data, configuration, and preventing errors in one application from affecting others within the same process.
 
- <img src="/assets/images/dfir/xintra_crash_dump/AppDomain.png" alt="AppDomain.png" width="500" style="display: block; margin: 0 auto"/
+<img src="/assets/images/dfir/xintra_crash_dump/AppDomain.png" alt="AppDomain.png" width="500" style="display: block; margin: 0 auto"/>
 
 
 Executing the command `wdomain` to dump all the application domain information [**name, base folder, config file and modules loaded(dlls)]** we get a domain under **`/LM/W3SVC` which is** associated with ASP.NET application running under IIS **`LM`** stands for "Local Machine," and **`W3SVC`** is the service in IIS responsible for managing HTTP requests.
