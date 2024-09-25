@@ -9,10 +9,9 @@ categories:
   - DFIR
 toc: true
 ---
+Effective memory dump analysis from a security perspective, particularly the `w3wp.exe` and `sqlservr.exe` is crucial when investigating attacks involving .NET applications targeting IIS. -Assuming you're lucky enough to find the compromised server alive :" -
 
-Understanding the importance of memory dump analysis from a security perspective, particularly the `w3wp.exe` and `sqlservr.exe` processes, is essential when investigating attacks that involve .NET applications targeting IIS, Assuming you're lucky enough to find the compromised server alive :"
-
-In this post, I will walk through my process while solving this awesome lab from <a href="https://www.xintra.org/labs" target="_blank">Xintra</a> which features user-mode dumps related to two CVEs (`CVE-2024-29824` and `CVE-2023-29357`), explaining key concepts along the way, not throwing commands and answers, hope this approach helps someone learn something new.
+In this post, I will walk through my process while solving this awesome lab from <a href="https://www.xintra.org/labs" target="_blank">Xintra</a> which features user-mode dumps related to two CVEs (Ivanti EPM SQLi RCE and a SharePoint Pre-Auth RCE chain), explaining key concepts along the way, not throwing commands and answers, hope this approach helps someone learn something new.
 
 <img src="/assets/images/dfir/xintra_crash_dump/hp.jpg" alt="hp.jpg" style="display: block; margin: 0 auto"/>
 
@@ -21,8 +20,7 @@ In this post, I will walk through my process while solving this awesome lab from
 >* Understand the CVEs technical details and there poc.
 >* Have a solid grasp of windows internals, some .Net and IIS concepts.
 >* Leverage your googlefu skills when get stuck.
->* Check the ```Resources``` section below.
-
+>* Check the <a href="https://0xsultan.github.io/dfir/Xintra-Crash-Dump-Analysis/#3-resources" target="_blank">Resources</a> section below. 
 ---
 
 # 1. CVE-2024-29824
@@ -66,7 +64,7 @@ Before analyzing the memory dump and assessing the impact let’s explain the `A
 
 Fortunately, the lab comes pre-configured with symbols and all the necessary WinDbg extensions.
 
-After loading the `w3wp` dump in WinDbg, let’s start by using the <a href="https://github.com/REhints/WinDbg/tree/master/MEX" target="_blank">MEX</a> plugin and display the dump information (user & machine names, etc.) with the command `!mex.dumpinfo` (**`!mex.di`**) 
+After loading one of the `w3wp` dump files in WinDbg, let’s start by using the <a href="https://github.com/REhints/WinDbg/tree/master/MEX" target="_blank">MEX</a> plugin and display the dump information (user & machine names, etc.) with the command `!mex.dumpinfo` (**`!mex.di`**) 
 
 <img src="/assets/images/dfir/xintra_crash_dump/image4.png" alt="image4.png" style="display: block; margin: 0 auto"/>
 
@@ -192,7 +190,7 @@ Using the command `!DisplayObj 0x000001d22c599e60` displayed the URL of the seco
 
 <img src="/assets/images/dfir/xintra_crash_dump/image22.png" style="display: block; margin: 0 auto"/>
 
-another easy way is via the plugin netext by the command `!whttp` to List the `HttpContext` Objects
+another easy way is via the plugin netext by the command `!whttp` to List the `HttpContext` objects
 
 <img src="/assets/images/dfir/xintra_crash_dump/image23.png" width="700" style="display: block; margin: 0 auto"/>
 
@@ -214,8 +212,7 @@ Searching the output got the body of the malicious POST request that was used to
 
 <img src="/assets/images/dfir/xintra_crash_dump/image27.png" style="display: block; margin: 0 auto"/>
 
-
-Before we jump to the reflectively loaded .NET assembly details, we can dump the config file lines with the command !wconfig
+Before we jump to the reflectively loaded .NET assembly details, we can dump the `Web.config` file lines (which contains various configuration settings and behaviors of an application hosted with IIS) with the command `!wconfig`.
 
 <img src="/assets/images/dfir/xintra_crash_dump/wconfig.png" width="500" style="display: block; margin: 0 auto"/>
 
@@ -255,9 +252,8 @@ Now we can pass its name and dump it via `wmodule` using the command `!wmodule [
 
  <img src="/assets/images/dfir/xintra_crash_dump/image33.png" style="display: block; margin: 0 auto"/>
 
-Using DNSSpy to analyis the dumped assembly, found it reads the .NET framework version from the Windows registry then it obtains the `MachineKeys` in order to craft a malicious `ViewState` for <a href="https://soroush.me/blog/2019/04/exploiting-deserialisation-in-asp-net-via-viewstate/" target="_blank">further exploitation</a>
-.
-
+Using dnSpy to analyze the dumped assembly, found it reads the .NET version from the registry and retrieves the `machine key` (validation and decryption keys) enabling the creation of malicious `ViewState` for further exploitation through deserialization attacks.
+For more details, check these two great blog posts: <a href="https://soroush.me/blog/2019/05/danger-of-stealing-auto-generated-net-machine-keys/" target="_blank">stealing auto-generated .NET machine keys</a> (contains the poc code too) and <a href="https://soroush.me/blog/2019/04/exploiting-deserialisation-in-asp-net-via-viewstate/" target="_blank">Exploiting Deserialisation in ASP.NET via ViewState</a>.
 
  <img src="/assets/images/dfir/xintra_crash_dump/hash.png" style="display: block; margin: 0 auto"/>
 
@@ -275,7 +271,7 @@ Dumping all exceptions with command `!!netext.wdae`, got an exception type `Syst
 
 > ### Finally big thanks to <a href="https://x.com/DebugPrivilege" target="_blank">@DebugPrivilege</a> and to the Xintra team for their <a href="https://www.xintra.org/labs" target="_blank">realstic labs.</a>
 
-If there any feedback fell free to contant me on Linkedin.
+If there any feedback fell free to contact me on Linkedin.
 
 <img src="/assets/images/dfir/xintra_crash_dump/poc.png" alt="image2.png" width="500" style="display: block; margin: 0 auto"/>
 

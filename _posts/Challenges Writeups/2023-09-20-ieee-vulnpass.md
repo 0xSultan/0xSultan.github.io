@@ -8,7 +8,7 @@ description: "Writeup for the memory fornensics challenge authored for the IEEE 
 categories:
   - Writeups
 ---
-This is a writeup for the memory forensics challenge `VulnPass` authored for the IEEE Victoria CTF 2023 competition, organized by <a href="https://www.facebook.com/IEEEManSB" target="_blank">IEEE ManSB</a> in partnership with EG-CERT.
+This is a writeup for the memory forensics challenge `VulnPass` authored for the IEEE Victoris CTF 2023 competition, organized by <a href="https://www.facebook.com/IEEEManSB" target="_blank">IEEE ManSB</a> in partnership with EG-CERT.
  
 ## Challenge Description
 
