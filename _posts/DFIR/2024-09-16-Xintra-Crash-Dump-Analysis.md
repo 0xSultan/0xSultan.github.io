@@ -218,13 +218,11 @@ Before we jump to the reflectively loaded .NET assembly details, we can dump the
 
 <img src="/assets/images/dfir/xintra_crash_dump/wconfig.png" width="500" style="display: block; margin: 0 auto"/>
 
-
 ---
-
 
 ## Reflectively loaded .NET assembly
 
-In an ASP.NET application, loaded .NET assembly (dll/exe) might directly or indirectly interacts with the ASP.NET cache to improve performance, and the assemblies are loaded into the `AppDomain` and executed to handle requests, let's investigate each further.
+In an ASP.NET application, loaded .NET assembly (dll/exe) might directly or indirectly interacts with the ASP.NET cache to improve performance, Moreover the assemblies are loaded into the `AppDomain` and executed, let's investigate each further.
 
 To check the ASP.NET cache, we can use the `!mex.AspNetCache` command. From the output one of the objects is `System.Reflection.RuntimeAssembly` which represents a loaded .NET assembly in the application's memory.
 
