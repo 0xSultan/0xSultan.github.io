@@ -20,6 +20,7 @@ In this post, I will walk through my process while solving this awesome lab from
 >* Understand the CVEs technical details and there poc.
 >* Have a solid grasp of windows internals, some .Net and IIS concepts.
 >* Leverage your googlefu skills when get stuck.
+>* With any lab, prioritize searching and learning over quick completion (it's not a cyberdrill).
 >* Check the 
 [Resources](https://0xsultan.github.io/dfir/Xintra-Crash-Dump-Analysis/#3-resources) section below.
  
