@@ -13,14 +13,15 @@ Effective memory dump analysis from a security perspective, particularly the `w3
 
 In this post, I will walk through my process while solving this awesome lab from <a href="https://www.xintra.org/labs" target="_blank">Xintra</a> which features user-mode dumps related to two CVEs (Ivanti EPM SQLi RCE and a SharePoint Pre-Auth RCE chain), explaining key concepts along the way, not throwing commands and answers, hope this approach helps someone learn something new.
 
-<img src="/assets/images/dfir/xintra_crash_dump/hp.jpg" alt="hp.jpg" style="display: block; margin: 0 auto"/>
+<img ssrc="/assets/images/dfir/xintra_crash_dump/hp.jpg" alt="hp.jpg" style="display: block; margin: 0 auto"/>
 
 ### Lab Tips:
 
 >* Understand the CVEs technical details and there poc.
 >* Have a solid grasp of windows internals, some .Net and IIS concepts.
 >* Leverage your googlefu skills when get stuck.
->* Check the Resources section below.
+>* Check the 
+[Resources](https://0xsultan.github.io/dfir/Xintra-Crash-Dump-Analysis/#3-resources) section below.
  
 ---
 
