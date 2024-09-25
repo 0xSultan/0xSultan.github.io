@@ -13,7 +13,7 @@ Effective memory dump analysis from a security perspective, particularly the `w3
 
 In this post, I will walk through my process while solving this awesome lab from <a href="https://www.xintra.org/labs" target="_blank">Xintra</a> which features user-mode dumps related to two CVEs (Ivanti EPM SQLi RCE and a SharePoint Pre-Auth RCE chain), explaining key concepts along the way, not throwing commands and answers, hope this approach helps someone learn something new.
 
-<img ssrc="/assets/images/dfir/xintra_crash_dump/hp.jpg" alt="hp.jpg" style="display: block; margin: 0 auto"/>
+<img src="/assets/images/dfir/xintra_crash_dump/hp.jpg" alt="hp.jpg" style="display: block; margin: 0 auto"/>
 
 ### Lab Tips:
 
@@ -66,7 +66,7 @@ Before analyzing the memory dump and assessing the impact let’s explain the `A
 
 Fortunately, the lab comes pre-configured with symbols and all the necessary WinDbg extensions.
 
-After loading one of the `w3wp` dump files in WinDbg, let’s start by using the <a href="https://github.com/REhints/WinDbg/tree/master/MEX" target="_blank">MEX</a> plugin and display the dump information (user & machine names, etc.) with the command `!mex.dumpinfo` (**`!mex.di`**) 
+After loading one of the `w3wp` dump files in WinDbg, let’s start by using the <a href="https://github.com/REhints/WinDbg/tree/master/MEX" target="_blank">MEX</a> plugin and display the dump information (user & machine names, etc.) with the command `!mex.dumpinfo` (`!mex.di`) 
 
 <img src="/assets/images/dfir/xintra_crash_dump/image4.png" alt="image4.png" style="display: block; margin: 0 auto"/>
 
@@ -95,7 +95,7 @@ Different approach is by the `MEX` plugin again, The `!mex.AspxPagesExt` command
 
 <img src="/assets/images/dfir/xintra_crash_dump/image9.png" alt="image9.png" style="display: block; margin: 0 auto"/>
 
-Let’s display the structure and details of CLR objects in memory by `!DisplayObj 0x000001d0da95e2c8` and get detailed view of the **`System.Web.HttpContext`** class objects (which contain all the information about the HTTP request).
+Let’s display the structure and details of CLR objects in memory by `!DisplayObj 0x000001d0da95e2c8` and get detailed view of the `System.Web.HttpContext` class objects (which contain all the information about the HTTP request).
 
 <img src="/assets/images/dfir/xintra_crash_dump/image10.png" width="700" alt="image10.png" style="display: block; margin: 0 auto"/>
 
@@ -117,7 +117,7 @@ or iterate over the `HttpRequest` objects via `!ForEachObject -s -x "!do2 @#Obj"
 
 ---
 
-instead of displaying the detailed view of the **`System.Web.HttpContext`** class objects we can display the stack trace associates with the thread ID 27 , there are multiple ways of listing call stacks but I'll use the `mex` plugin with the command  `!mex.ClrStack2 27` ,as shown the thread ID for the call stack that shows the execution of this SQL command is `2698`  along with its parameters and variables.
+instead of displaying the detailed view of the `System.Web.HttpContext` class objects we can display the stack trace associates with the thread ID 27 , there are multiple ways of listing call stacks but I'll use the `mex` plugin with the command  `!mex.ClrStack2 27` ,as shown the thread ID for the call stack that shows the execution of this SQL command is `2698`  along with its parameters and variables.
 
 ![image15.png](/assets/images/dfir/xintra_crash_dump/image15.png)
 
@@ -224,9 +224,9 @@ Before we jump to the reflectively loaded .NET assembly details, we can dump the
 
 ## Reflectively loaded .NET assembly
 
-In an ASP.NET application, loaded .NET assembly (dll/exe) might directly or indirectly interacts with the ASP.NET cache to improve performance, and the assemblies are loaded into the *AppDomain* and executed to handle requests, let's investigate each further.
+In an ASP.NET application, loaded .NET assembly (dll/exe) might directly or indirectly interacts with the ASP.NET cache to improve performance, and the assemblies are loaded into the `ppDomain` and executed to handle requests, let's investigate each further.
 
-To check the ASP.NET cache, we can use the **`!mex.AspNetCache`** command. From the output one of the objects is **`System.Reflection.RuntimeAssembly`** which represents a loaded .NET assembly in the application's memory.
+To check the ASP.NET cache, we can use the `!mex.AspNetCache` command. From the output one of the objects is `System.Reflection.RuntimeAssembly` which represents a loaded .NET assembly in the application's memory.
 
 <img src="/assets/images/dfir/xintra_crash_dump/image29.png" alt="image29.png" width="500" style="display: block; margin: 0 auto"/>
 
@@ -238,7 +238,7 @@ cool we dumped the ASP.NET cache, now let's jump to the `AppDomain`.
 <img src="/assets/images/dfir/xintra_crash_dump/AppDomain.png" alt="AppDomain.png" width="500" style="display: block; margin: 0 auto"/>
 
 
-Executing the command `wdomain` to dump all the application domain information [**name, base folder, config file and modules loaded(dlls)]** we get a domain under **`/LM/W3SVC` which is** associated with ASP.NET application running under IIS **`LM`** stands for "Local Machine," and **`W3SVC`** is the service in IIS responsible for managing HTTP requests.
+Executing the command `wdomain` to dump all the application domain information [name, base folder, config file and modules loaded(dlls)] we get a domain under `/LM/W3SVC` which is associated with ASP.NET application running under IIS `LM` stands for "Local Machine" and `W3SVC` is the service in IIS responsible for managing HTTP requests.
 
 Passing its memory address to `wmodule` loaded a module named `Getkey` that doesn't look right. It has a completely different style of name to the other modules.
 
