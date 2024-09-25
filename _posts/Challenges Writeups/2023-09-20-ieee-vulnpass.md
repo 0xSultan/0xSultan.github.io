@@ -16,7 +16,7 @@ This is a writeup for the memory forensics challenge `VulnPass` authored for the
 
 ## Challenge Idea
 
->In KeePass 2.x before 2.54, it is possible to recover the cleartext master password from a memory dump (CVE-2023-32784), After extracting the master password then the database file (database2.kdbx) can be dumped from the memory. By using the recovered master key password to open the database, the flag can be obtained
+>In KeePass 2.x before 2.54, it is possible to recover the cleartext master password from a memory dump (CVE-2023-32784), After extracting the master password the database file (database2.kdbx) can be dumped from the memory. By using the recovered master key password to open the database, the flag can be obtained
 
 ## Challenge Writeup
 
