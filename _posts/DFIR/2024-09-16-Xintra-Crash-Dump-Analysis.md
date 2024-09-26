@@ -88,11 +88,11 @@ from the cve <a href="https://www.horizon3.ai/attack-research/attack-blogs/cve-2
 
 <img src="/assets/images/dfir/xintra_crash_dump/image7.png" width="700" style="display: block; margin: 0 auto"/>
 
-Found the vulnerable endpoint `/EventHandler.asmx` in the file `w3wp (5).DMP` with the full URI of the malicious POST request. Using netext, we can also display the timestamp of the request as shown:
+Found the vulnerable endpoint `/EventHandler.asmx` in the file `w3wp (5).DMP` with the full URI of the POST request. Using netext, we can also display the timestamp of the request as shown:
 
 <img src="/assets/images/dfir/xintra_crash_dump/image8.png" alt="image8.png" style="display: block; margin: 0 auto"/>
 
-Different approach is by the `MEX` plugin again, The `!mex.AspxPagesExt` command provides stats for the processed ASPX pages requests which have run and currently running when the memory dump was taken. 
+Different approach is by the `MEX` plugin again, The `!mex.AspxPagesExt` command provides stats for the processed ASPX pages requests which have run and currently running when the dump was taken. 
 
 <img src="/assets/images/dfir/xintra_crash_dump/image9.png" alt="image9.png" style="display: block; margin: 0 auto"/>
 
