@@ -263,7 +263,7 @@ For more details, check these two great blog posts: <a href="https://soroush.me/
 
 Although the malicious .NET assembly was loaded reflectively, it was unable to execute its malicious code and an exception was generated.
 
-Dumping all exceptions with command `!!netext.wdae`, got an exception type `System.BadImageFormatException` that was thrown preventing the DLL from running successfully and the field `_innerException` contains the reason of the exception.
+Dumping all exceptions with command `!netext.wdae`, got an exception type `System.BadImageFormatException` that was thrown preventing the DLL from running successfully and the field `_innerException` contains the reason of the exception.
 
  <img src="/assets/images/dfir/xintra_crash_dump/image35.png" style="display: block; margin: 0 auto"/>
 
