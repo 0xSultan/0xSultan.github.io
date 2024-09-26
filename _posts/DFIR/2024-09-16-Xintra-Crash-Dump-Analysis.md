@@ -229,7 +229,7 @@ To check the ASP.NET cache, we can use the `!mex.AspNetCache` command. From t
 
 <img src="/assets/images/dfir/xintra_crash_dump/image29.png" alt="image29.png" width="500" style="display: block; margin: 0 auto"/>
 
-cool we dumped the ASP.NET cache, now let's jump to the `AppDomain`.
+cool we dumped the ASP.NET cache and found a loaded .NET assembly evidence, now let's jump to the `AppDomain`.
 
 ## AppDomain ?
 > In ASP.NET, an AppDomain (Application Domain) is a logical container that isolates applications running within the same process, such as `w3wp.exe` process can host multiple ASP.NET applications simultaneously. Each ASP.NET application runs in its own AppDomain, ensuring separation of application data, configuration, and preventing errors in one application from affecting others within the same process.
