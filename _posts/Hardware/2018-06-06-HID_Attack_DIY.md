@@ -4,7 +4,7 @@ classes: wide
 header:
   teaser: /assets/images/hardware/HID_Attack_DIY/logo1.jpg
 ribbon: ForestGreen
-description: "Some schematics I designed on 2018 to achieve an HID attack and weaponize usb cables or devices..."
+description: "Some schematics I designed in 2018 to achieve an HID attack and weaponize usb cables or devices..."
 categories:
   - Hardware
 ---
