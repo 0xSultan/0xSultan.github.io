@@ -21,7 +21,7 @@ Anyway, I pulled the database files of this application e.g., megapreferences, I
 
 
 > ## **Challenge Idea**
->The Mega.nz mobile application stores its data (e.g. uploaded files) on an encrypted SQLite database, but the decryption key is fixed and stored in the apk itself. In this challenge the attacker modified the application on his phone as an anti-forensics technique, so to read the contents of the database you have to reverse the apk and get the custome key then decrypt the DB data to get the flag.
+>The Mega.nz mobile application stores files metadata (e.g. uploaded files' names) on an encrypted SQLite database, but the decryption key is fixed and stored in the apk itself. In this challenge the attacker modified the application on his phone as an anti-forensics technique, so to read the contents of the database you have to reverse the apk and get the custome key then decrypt the DB data to get the flag.
 
 > ## **Challenge Writeup**
 
