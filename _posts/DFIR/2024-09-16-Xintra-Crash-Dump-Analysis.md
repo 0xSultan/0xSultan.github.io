@@ -286,15 +286,13 @@ If there any feedback fell free to contact me on Linkedin.
 
 <a href="https://github.com/Faran-17/Windows-Internals" target="_blank">Notes and topics towards mastering Windows Internals</a>
 
-<a href="https://www.youtube.com/watch?v=52c1QIW6niE&list=PLLhSArDiaW6IgzMYEMaEf_BF2yQN40fIm&index=8&t=793s" target="_blank">ProcDump deep dive - From the Sysinternals Playlist</a>
+<a href="https://www.youtube.com/watch?v=2rGS5fYGtJ4" target="_blank">Windows Debugging and Troubleshooting Talk</a>
 
 <a href="https://techcommunity.microsoft.com/t5/sql-server-support-blog/intro-to-debugging-a-memory-dump/ba-p/316925" target="_blank">Intro to Debugging a Memory Dump</a>
 
-<a href="https://www.tessferrandez.com/blog/2007/09/12/debugging-script-dumping-out-current-and-recent-aspnet-requests.html" target="_blank">Debugging Script: Dumping out current and recent ASP.NET Requests</a>
-
 <a href="https://www.patterndiagnostics.com/mdaa-volumes" target="_blank">The Memory Dump Analysis Anthology by Dmitry Vostokov</a>
 
-<a href="https://www.youtube.com/watch?v=2rGS5fYGtJ4" target="_blank">Windows Debugging and Troubleshooting Talk</a>
+<a href="https://www.youtube.com/watch?v=52c1QIW6niE&list=PLLhSArDiaW6IgzMYEMaEf_BF2yQN40fIm&index=8&t=793s" target="_blank">ProcDump deep dive - From the Sysinternals Playlist</a>
 
 <a href="https://blog.xpnsec.com/hiding-your-dotnet-etw/" target="_blank">Hiding your .NET - ETW</a>
 
