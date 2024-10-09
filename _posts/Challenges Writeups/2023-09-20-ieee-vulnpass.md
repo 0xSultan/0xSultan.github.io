@@ -13,6 +13,8 @@ This is a writeup for the memory forensics challenge `VulnPass` authored for the
 ## Challenge Description
 
 > During first response on an APT group devices we were trying to access the C2 login dashboard and take down there infrastructure but failed to decrypt the browser credentials. Fortunately, we got this acquisition so you may help to access the dashboard!
+> **Challenge file**: [VulnPass_MemDump.mem](https://mega.nz/file/e000hTqK#zen428WnnOPXzPOhhmrGYZD0w_vskSWi6lk4c59qxzA)
+
 
 ## Challenge Idea
 
