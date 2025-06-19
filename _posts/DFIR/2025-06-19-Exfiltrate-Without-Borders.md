@@ -39,7 +39,7 @@ or
 
 > I wrote a couple of C# scripts and a BOF as PoCs to simulate these cases,  they’ll be covered later in the post.
 
-So MWB introduces multiple lateral communication and data transfer vectors, often with minimal logging or visibility. Key abuse scenarios include injecting keystrokes to connected devices, clipboard and file transfer misuse across devices and bypassing DLP.
+Key abuse scenarios include injecting keystrokes to connected devices, clipboard and file transfer misuse across devices and bypassing DLP.
 
 # Background & Legitimate Usage
 
