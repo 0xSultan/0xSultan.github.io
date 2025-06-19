@@ -248,7 +248,7 @@ All scripts and files are available here: [MouseWithoutBorders-Abuse](https://gi
 
 # KAPE Target & Triage
 
-To simplify triage, just created a KAPE target file: [MouseWithoutBorders.tkape](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Apps/MouseWithoutBorders.tkape) (The pull request just requires to be approved)
+To simplify triage, just created a KAPE target file: [MouseWithoutBorders.tkape](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Apps/MouseWithoutBorders.tkape)
 
 
 # Mitigation & Hardening
