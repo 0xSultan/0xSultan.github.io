@@ -94,7 +94,7 @@ analytics:
 author:
   name: "Mohamed Sultan"
   avatar: /assets/images/site_data/WubbaLubbaDubDub.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio: "DFIR Specialist with background in offensive security. Passionate about DFIR, Attack & Defense, Hardware and learning new stuff."
+  bio: "DFIR Specialist with background in offensive security. Passionate about DFIR, Attack & Defense, Malware Analysis and learning new stuff."
   location: "::1"
   email:
   links:
