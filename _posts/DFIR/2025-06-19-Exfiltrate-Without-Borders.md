@@ -238,9 +238,9 @@ To demonstrate the practical abuse scenarios i mentioned earlier, I developed co
 
     This one simulates pressing the MWB shortcut (e.g., CTRL+ALT+F3) to switch control to connected device then injects (WIN+R → calc → ENTER). Could be enhanced to read the settings.json file and know which device is connected and what shortcut to use…
 
-### BOF PoC:
+### BOF PoC **(`mwb_injector.o`)**:
 
-Just a Beacon Object File that integrates with Cobalt Strike, simulates switching to a paired device then injecting keystrokes via MWB.
+Just a Beacon Object File that integrates with Cobalt Strike, simulates switching to a paired device then injecting keystrokes via MWB, i found it a way to learn more about BOFs detials and simulate a real scenario so why not.
 
 > "Talk is cheap. Show me the code."
 
@@ -248,7 +248,7 @@ All scripts and files are available here: [MouseWithoutBorders-Abuse](https://gi
 
 # KAPE Target & Triage
 
-To simplify triage, just created a KAPE target file: [MouseWithoutBorders.tkape](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Apps/MouseWithoutBorders.tkape)
+To simplify triage, just created a KAPE target file: [MouseWithoutBorders.tkape](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Apps/MouseWithoutBorders.tkape) (The pull request just requires to be approved)
 
 
 # Mitigation & Hardening
@@ -298,11 +298,11 @@ To perform this study, several tools were used to create the abuse poc and monit
 
 ### Triage and Analysis Tools
 
-- Havoc C2
 - Everything tool
 - Procmon & procexp
 - KAPE and Velociraptor
 - Wireshark and tcpdump
+- Havoc C2 & COFFLoader
 - Registry Explorer & RegShot
 - Visual Studio to build some C# POCs
 - Claude & Visual Studio code for source code inspection and poc
