@@ -236,7 +236,7 @@ To demonstrate the practical abuse scenarios i mentioned earlier, I developed co
 
 - **Switch Control & Inject (`HotkeySwitch.cs`)**: 
 
-    This one simulates pressing the MWB shortcut (e.g., CTRL+ALT+F3) to switch control to another device. Could be enhanced to read the `settings.json` file and know which device is connected and what shortcut to use...
+    This one simulates pressing the MWB shortcut (e.g., CTRL+ALT+F3) to switch control to connected device then injects (WIN+R → calc → ENTER). Could be enhanced to read the settings.json file and know which device is connected and what shortcut to use…
 
 ### BOF PoC:
 
