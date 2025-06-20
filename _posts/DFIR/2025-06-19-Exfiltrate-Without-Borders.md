@@ -135,7 +135,7 @@ From the log files `Log_YYYY-MM-DD.log` located in (`%LocalAppData%\Microsoft\Po
 
     In our lab we have 2 devices Gryffindor (main device) and Ravenclaw, when you copy file from Ravenclaw and just move the mouse curser to Gryffindor, a log is recorded in Log_YYYY-MM-DD.log (Gryffindor logs) with the file path and name (didn’t paste it yet), to find it you can grep for `Common.Clipboard.cs::ReceiveAndProcessClipboardData` for the copy event followed by the file and its path:
 
-    <img src="/assets/images/dfir/ewb/File_Transfer.png" width="600" style="display: block; margin: 0 auto"/>
+    <img src="/assets/images/dfir/ewb/File_Transfer.png" width="800" style="display: block; margin: 0 auto"/>
 
 - **listening Port**:
 
