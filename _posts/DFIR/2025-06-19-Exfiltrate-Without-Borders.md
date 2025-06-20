@@ -79,7 +79,7 @@ The key is then manually shared with secondary machines to establish trust and t
 2. The key and the hostname of the primary machine are entered manually in the secondary machine.
 3. The application resolves hostnames and uses the key to perform a handshake.
 
-# Runtime Behavior and Artifacts
+# Runtime Behavior & Artifacts
 
 When MWB is enabled in PowerToys, the mwb main process `PowerToys.MouseWithoutBorders.exe` is launched, which subsequently spawns `PowerToys.MouseWithoutBordersHelper.exe` to handle clipboard tasks:
 
@@ -135,7 +135,7 @@ From the log files `Log_YYYY-MM-DD.log` located in (`%LocalAppData%\Microsoft\Po
 
     In our lab we have 2 devices Gryffindor (main device) and Ravenclaw, when you copy file from Ravenclaw and just move the mouse curser to Gryffindor, a log is recorded in Log_YYYY-MM-DD.log (Gryffindor logs) with the file path and name (didn’t paste it yet), to find it you can grep for `Common.Clipboard.cs::ReceiveAndProcessClipboardData` for the copy event followed by the file and its path:
 
-    <img src="/assets/images/dfir/ewb/Connection_Event.png" width="600" style="display: block; margin: 0 auto"/>
+    <img src="/assets/images/dfir/ewb/File_Transfer.png" width="600" style="display: block; margin: 0 auto"/>
 
 - **listening Port**:
 
