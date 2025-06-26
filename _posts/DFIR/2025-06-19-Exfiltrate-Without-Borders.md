@@ -12,6 +12,9 @@ Mouse Without Borders (MWB) is a popular open-source tool by Microsoft that enab
 
 Months ago, I explored MWB from an offensive security perspective particularly when testing it in a lab environment on a monitored corporate device and I was able to transfer data to an external non-domain-joined machine. 
 
+<img src="/assets/images/dfir/ewb/hp.jpg" width="500" style="display: block; margin: 0 auto"/>
+
+
 Despite MWB’s popularity, there is no published research detailing its forensic artifacts, abuse scenarios or detection so i decided to write this post to fill that gap and discuss:
 
 - How it can be abused for lateral movement or data exfiltration
