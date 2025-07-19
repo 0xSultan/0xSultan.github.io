@@ -21,7 +21,7 @@ Despite MWB’s popularity, there is no published research detailing its forensi
 - How MWB works under the hood
 - What artifacts it leaves behind
 - How to detect, investigate, and mitigate its unauthorized use
-- Supporting work including KAPE Target, c# scripts and a BOF as a poc.
+- Supporting work including Velociraptor Artifact, KAPE Target, c# scripts and a BOF as a poc.
 
 # Threat Model & Abuse Scenarios
 
@@ -246,13 +246,19 @@ To demonstrate the practical abuse scenarios i mentioned earlier, I developed co
 Just a Beacon Object File that integrates with Cobalt Strike, simulates switching to a paired device then injecting keystrokes via MWB, i found it a way to learn more about BOFs detials and simulate a real scenario so why not.
 
 > "Talk is cheap. Show me the code."
+>
+> All scripts and files are available here: [MouseWithoutBorders-Abuse](https://github.com/0xSultan/MouseWithoutBorders-Abuse)
 
-All scripts and files are available here: [MouseWithoutBorders-Abuse](https://github.com/0xSultan/MouseWithoutBorders-Abuse)
+# Velociraptor Artifact & KAPE Target
 
-# KAPE Target & Triage
+As a big fan of Velociraptor, I created a custom artifact to simplify the collection and parsing of the MWB logs & settings and also created a KAPE target for triage:
 
-To simplify triage, just created a KAPE target file: [MouseWithoutBorders.tkape](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Apps/MouseWithoutBorders.tkape)
+* Velociraptor Artifact: [Windows.Applications.MouseWithoutBorders.yaml](https://github.com/Velocidex/velociraptor-docs/blob/master/content/exchange/artifacts/Windows.Applications.MouseWithoutBorders.yaml)
 
+* Kape Target: [MouseWithoutBorders.tkape](https://github.com/EricZimmerman/KapeFiles/blob/master/Targets/Apps/MouseWithoutBorders.tkape)
+
+
+<img src="/assets/images/dfir/ewb/velo_artifact.png" width="700" style="display: block; margin: 0 auto"/>
 
 # Mitigation & Hardening
 
